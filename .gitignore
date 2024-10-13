@@ -1,0 +1,15 @@
+# Ignore everything
+*
+
+# Un-ignore specific files in the root
+!.gitignore
+!README.md
+
+# Un-ignore all directories to allow searching inside them
+!*/
+
+# Un-ignore specific files across the entire directory structure
+!**/docker-compose.yaml
+!**/docker-compose.yml
+!**/create.sql
+!**/.template.env
