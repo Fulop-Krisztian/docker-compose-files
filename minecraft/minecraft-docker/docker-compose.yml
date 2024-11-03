@@ -31,7 +31,7 @@ services:
       DIFFICULTY: "easy"
 
       # The world we use (change to generate a new one I think):
-      LEVEL: Terra_Swoop_Force
+      LEVEL: world
 
       # Optimizations
       GUI: false

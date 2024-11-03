@@ -32,7 +32,7 @@ services:
       SPAWN_PROTECTION=15
 
       # The world we use (change to generate a new one I think):
-      LEVEL: world
+      LEVEL: Terra_Swoop_Force
 
       # Optimizations
       GUI: false
