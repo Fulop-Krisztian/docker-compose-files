@@ -1,0 +1,24 @@
+services:
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+
+  nextcloud:
+    image: nextcloud
+    restart: unless-stopped
+    ports:
+      - "8090:80"  # Expose Nextcloud on port 8090
+    depends_on:
+      - redis
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}       # Name of the database
+      - MYSQL_USER=${MYSQL_USER}               # MySQL user for Nextcloud
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - NEXTCLOUD_TRUSTED_DOMAINS=192.168.0.220 192.168.0.0/24
+    volumes:
+      - nextcloud_data:/var/www/html        # Volume for Nextcloud data
+
+volumes:
+  nextcloud_data:
+

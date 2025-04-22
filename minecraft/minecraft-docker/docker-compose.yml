@@ -4,30 +4,30 @@ services:
     container_name: mc
     # restart automatically.
     restart: unless-stopped
-    tty: true
-    stdin_open: true
+    tty: "true"
+    stdin_open: "true"
     ports:
       - "25565:25565"
     environment:
-      EULA: "TRUE"
+      EULA: "true"
 
       # Server settings
       SERVER_NAME: "Krissssz Gecijó szervere"
       MOTD: "\u00a7cThere can be no hope in this hell, no hope at all...\u00a7r\nKrissssz szervere ami t\u00f6k\u00e9letesen m\u0171k\u00a7k\u00f6dikkkkkkkkkkkk"
       MAX_PLAYERS: "16"
       ICON: "https://archiveofsins.com/data/lgbt/image/1670/27/1670276421788437.jpg"
-      SNOOPER_ENABLED: false
+      SNOOPER_ENABLED: "false"
       # This is actually authentication, has nothing to do with "online". Leave it disabled for cracked clients to work
-      ONLINE_MODE: false
+      ONLINE_MODE: "false"
       # Not very important, something to do with a more pleasant looking console. Currently disabled in favor of auto-pause
-      EXEC_DIRECTLY: false
+      EXEC_DIRECTLY: "false"
       # Admins in the minecraft world
       OPS: "Krissssz,BaluMC"
       # restarts the server forcably after this many millis if no reply from server (1 day for auto-pause to work correctly)
       MAX_TICK_TIME: -1
 
       # Other
-      ANNOUNCE_PLAYER_ACHIEVEMENTS: true
+      ANNOUNCE_PLAYER_ACHIEVEMENTS: "true"
       DIFFICULTY: "easy"
       STOP_SERVER_ANNOUNCE_DELAY: 15
       TZ: Europe/Budapest
@@ -36,19 +36,19 @@ services:
       LEVEL: world
 
       # Optimizations
-      GUI: false
+      GUI: "false"
       INIT_MEMORX: 750M
       MAX_MEMORY: 2G
-      ENABLE_AUTOPAUSE: true
+      ENABLE_AUTOPAUSE: "true"
       NETWORK_COMPRESSION_THRESHOLD: 128 #packets will be compressed if their size is larger than this
       SIMULATION_DISTANCE: 8
-      # TUNE_VIRTUALIZED: true # Enable when in a VM
-      USE_SIMD_FLAGS: true
+      # TUNE_VIRTUALIZED: "true" # Enable when in a VM
+      USE_SIMD_FLAGS: "true"
 
       # Speaks for itself
       CUSTOM_SERVER_PROPERTIES: |
-        BROADCAST_CONSOLE_TO_OPS=true
-        BROADCAST_RCON_TO_OPS=true
+        BROADCAST_CONSOLE_TO_OPS="true"
+        BROADCAST_RCON_TO_OPS="true"
       # LATEST is default
       VERSION: LATEST
 
