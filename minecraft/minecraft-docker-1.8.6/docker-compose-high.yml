@@ -4,49 +4,58 @@ services:
     container_name: mc-1.8
     # restart automatically.
     restart: unless-stopped
-    tty: true
-    stdin_open: true
+    tty: "true"
+    stdin_open: "true"
     ports:
       - "25566:25565"
     environment:
-      EULA: "TRUE"
+      EULA: "true"
 
       # Server settings
       SERVER_NAME: "Krissssz Gecijó szervere 1.8"
       MOTD: "\u00a7cThere can be no hope in this hell, no hope at all...\u00a7r\nKrissssz másik t\u00f6k\u00e9letesen m\u0171k\u00a7k\u00f6dikkkkkkkkkkkk"
-      MAX_PLAYERS: "12"
+      MAX_PLAYERS: "64"
       ICON: "https://archiveofsins.com/data/lgbt/image/1672/55/1672554981618052.png"
-      OVERRIDE_ICON: true
-      SNOOPER_ENABLED: false
+      OVERRIDE_ICON: "true"
+      SNOOPER_ENABLED: "false"
       # This is actually authentication, has nothing to do with "online". Leave it disabled for cracks to work
-      ONLINE_MODE: false
+      ONLINE_MODE: "false"
       # Not very important, something to do with a more pleasant looking console. Currently disabled in favor of auto-pause
-      EXEC_DIRECTLY: false
+      EXEC_DIRECTLY: "false"
       # Admins in the minecraft world
       OPS: "Krissssz,BaluMC"
-      #restarts the server forcably after this many millis if no reply from server (1 day for auto-pause to work correctly)
-      MAX_TICK_TIME: 86400000
+      # restarts the server forcably after this many millis if no reply from server (1 day for auto-pause to work correctly)
+      MAX_TICK_TIME: -1
 
       # Other
-      ANNOUNCE_PLAYER_ACHIEVEMENTS: true
+      ANNOUNCE_PLAYER_ACHIEVEMENTS: "true"
       DIFFICULTY: "easy"
+      STOP_SERVER_ANNOUNCE_DELAY: 15
+      TZ: Europe/Budapest
 
       # The world we use (change to generate a new one I think):
       LEVEL: nyami
 
       # Optimizations
-      GUI: false
+      GUI: "false"
       INIT_MEMORX: 750M
-      MAX_MEMORY: 2G
-      ENABLE_AUTOPAUSE: true
+      MAX_MEMORY: 7G
+      ENABLE_AUTOPAUSE: "true"
+      NETWORK_COMPRESSION_THRESHOLD: 128 #packets will be compressed if their size is larger than this
+      SIMULATION_DISTANCE: 12
+      TUNE_VIRTUALIZED: "true" # Enable when in a VM
+      USE_SIMD_FLAGS: "true"
 
       # Speaks for itself
       CUSTOM_SERVER_PROPERTIES: |
-        BROADCAST_CONSOLE_TO_OPS=true
-        BROADCAST_RCON_TO_OPS=true
+        BROADCAST_CONSOLE_TO_OPS="true"
+        BROADCAST_RCON_TO_OPS="true"
       # LATEST is default
-      VERSION: 1.8.6
+      VERSION: "1.8.6"
 
+      # JVM arguments for garbage collection optimization
+      USE_AIKAR_FLAGS: "true"
+      # JVM_OPTS: "-XX:+UseG1GC -XX:NewSize=512M -XX:MaxNewSize=512M -XX:ParallelGCThreads=4 -XX:G1HeapRegionSize=4M -XX:MaxGCPauseMillis=250 -XX:InitiatingHeapOccupancyPercent=50 -XX:G1MixedGCCountTarget=4 -XX:-UseGCOverheadLimit"
 
     volumes:
       # attach the relative directory 'data' to the container's /data path
