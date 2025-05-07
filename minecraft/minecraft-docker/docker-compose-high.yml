@@ -1,3 +1,4 @@
+# This server is configured and optimized for running in a VM with 8 GB of ram.
 services:
   mc:
     image: itzg/minecraft-server
